@@ -3,11 +3,11 @@ if (session_status() === PHP_SESSION_NONE) {
     session_start();
 }
 
-$host     = ('gateway01.ap-southeast-1.prod.alicloud.tidbcloud.com');
-$port     = ('4000');
-$dbname   = ('Tracking');
-$username = ('rYKFcN4zmjYBxLa.root');
-$password = ('h0UwkOyj9GVT7FpW');
+$host     = 'gateway01.ap-southeast-1.prod.alicloud.tidbcloud.com';
+$port     = '4000';
+$dbname   = 'Tracking';
+$username = 'rYKFcN4zmjYBxLa.root';
+$password = 'h0UwkOyj9GVT7FpW';
 
 // Mencari lokasi sertifikat SSL bawaan server Vercel (Amazon Linux / Debian)
 $ca_path = '/etc/ssl/certs/ca-certificates.crt'; 
@@ -16,7 +16,7 @@ if (!file_exists($ca_path)) {
 }
 
 try {
-    $dsn = "mysql:host=$host;port=$port;dbname=$db_name;charset=utf8mb4";
+    $dsn = "mysql:host=$host;port=$port;dbname=$dbname;charset=utf8mb4";
     $pdo = new PDO($dsn, $username, $password, [
         PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
         PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
