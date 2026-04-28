@@ -6,17 +6,20 @@ error_reporting(E_ALL);
 if (session_status() === PHP_SESSION_NONE) {
     session_start();
 }
-// Gunakan slash
-
-require_once __DIR__ . '/api_tiket.php'; 
-require_once __DIR__ . '/proses_tiket_harian.php'; 
-
 
 // Cek apakah user sudah login dan memiliki role admin
-if (!isset($_SESSION['role']) || $_SESSION['role'] !== 'admin') {
-    header("Location: login.php");
-    exit();
+if (!isset($_SESSION['role']) || !isset($_SESSION['user_id'])) {
+    header("Location: login.php", true, 302);
+    exit;
 }
+
+if ($_SESSION['role'] !== 'admin') {
+    header("Location: tiket.php", true, 302);
+    exit;
+}
+
+require_once __DIR__ . '/api_tiket.php'; 
+require_once __DIR__ . '/proses_tiket_harian.php';
 ?>
 <!DOCTYPE html>
 <html lang="id">

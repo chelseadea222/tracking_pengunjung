@@ -24,13 +24,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $_SESSION['email'] = $user['email'];
             $_SESSION['role'] = $user['role'];
 
+            // Pastikan session disimpan sebelum redirect
+            session_write_close();
+
             $target_url = (strtolower($user['role']) === 'admin') ? 'tiket_harian.php' : 'tiket.php';
-            
-            if (!headers_sent()) {
-                header("Location: " . $target_url);
-            }
-            // Jika PHP Header gagal, Javascript yang akan mengambil alih redirect-nya
-            echo "<script>window.location.href='" . $target_url . "';</script>";
+            header("Location: " . $target_url, true, 302);
             exit;
             
         } else {

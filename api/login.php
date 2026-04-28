@@ -6,17 +6,19 @@ if (session_status() === PHP_SESSION_NONE) {
     session_start();
 }
 
-require_once __DIR__ . '/proses_login.php';
-
-if (isset($_SESSION['role'])) {
+// Jika sudah login, redirect ke halaman sesuai role
+if (isset($_SESSION['role']) && !empty($_SESSION['user_id'])) {
     if (strtolower($_SESSION['role']) === 'admin') {
-        header('Location: tiket_harian.php');
+        header('Location: tiket_harian.php', true, 302);
         exit;
     } else {
-        header('Location: tiket.php');
+        header('Location: tiket.php', true, 302);
         exit;
     }
 }
+
+// Proses login
+require_once __DIR__ . '/proses_login.php';
 // kalau sudah login, langsung ke tiket harian
 ?>
 <!DOCTYPE html>
