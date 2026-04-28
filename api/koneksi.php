@@ -3,11 +3,11 @@ if (session_status() === PHP_SESSION_NONE) {
     session_start();
 }
 
-$host     = getenv('TIDB_HOST');
-$port     = getenv('TIDB_PORT');
-$db_name  = getenv('TIDB_DATABASE');
-$username = getenv('TIDB_USERNAME');
-$password = getenv('TIDB_PASSWORD');
+$host     = getenv('gateway01.ap-southeast-1.prod.alicloud.tidbcloud.com');
+$port     = getenv('4000');
+$dbname   = getenv('Tracking');
+$username = getenv('rYKFcN4zmjYBxLa.root');
+$password = getenv('h0UwkOyj9GVT7FpW');
 
 // Mencari lokasi sertifikat SSL bawaan server Vercel (Amazon Linux / Debian)
 $ca_path = '/etc/ssl/certs/ca-certificates.crt'; 
