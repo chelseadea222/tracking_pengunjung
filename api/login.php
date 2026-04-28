@@ -6,9 +6,10 @@ if (session_status() === PHP_SESSION_NONE) {
     session_start();
 }
 
-// Jika sudah login, redirect ke halaman sesuai role
-if (isset($_SESSION['role']) && !empty($_SESSION['user_id'])) {
-    if (strtolower($_SESSION['role']) === 'admin') {
+require_once __DIR__ . '/proses_login.php';
+
+if (isset($_COOKIE['role'])) {
+    if (strtolower($_COOKIE['role']) === 'admin') {
         header('Location: tiket_harian.php');
         exit;
     } else {
@@ -16,9 +17,6 @@ if (isset($_SESSION['role']) && !empty($_SESSION['user_id'])) {
         exit;
     }
 }
-
-// Proses login
-require_once __DIR__ . '/proses_login.php';
 // kalau sudah login, langsung ke tiket harian
 ?>
 <!DOCTYPE html>
