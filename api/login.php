@@ -9,10 +9,10 @@ if (session_status() === PHP_SESSION_NONE) {
 // Jika sudah login, redirect ke halaman sesuai role
 if (isset($_SESSION['role']) && !empty($_SESSION['user_id'])) {
     if (strtolower($_SESSION['role']) === 'admin') {
-        header('Location: tiket_harian.php', true, 302);
+        header('Location: tiket_harian.php');
         exit;
     } else {
-        header('Location: tiket.php', true, 302);
+        header('Location: tiket.php');
         exit;
     }
 }
