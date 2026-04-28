@@ -1,0 +1,49 @@
+body { 
+            font-family: 'Poppins', sans-serif; 
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.4)), 
+                        url("https://upload.wikimedia.org/wikipedia/commons/8/8e/Bromo-Semeru-Batok-Widodaren.jpg");
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            min-height: 100vh;
+            color: #fff;
+        }
+        .navbar {
+            background: rgba(0,0,0,0.5);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+        .glass-card {
+            background: rgba(20,20,20,0.6);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255,255,255,0.2);
+            border-radius: 20px;
+            box-shadow: 0 8px 32px 0 rgba(0,0,0,0.5);
+            padding: 25px;
+        }
+        .form-control, .form-select {
+            background: rgba(255,255,255,0.1);
+            border: 1px solid rgba(255,255,255,0.3);
+            color: #fff !important;
+        }
+        .form-control:focus, .form-select:focus {
+            background: rgba(255,255,255,0.2);
+            border-color: #f39c12;
+            box-shadow: 0 0 10px rgba(243,156,18,0.5);
+        }
+        .form-control::placeholder { color: rgba(255,255,255,0.6); }
+        option { background: #333; color: #fff; }
+        .btn-bromo {
+            background: #f39c12;
+            color: #fff;
+            border: none;
+            font-weight: 600;
+            transition: 0.3s;
+        }
+        .btn-bromo:hover { background: #e67e22; transform: translateY(-3px); color: #fff; }
+        .weather-temp { font-size: 4rem; font-weight: 700; line-height: 1; text-shadow: 2px 2px 5px rgba(0,0,0,0.5); color: #f39c12; }
+        .map-container { overflow: hidden; padding-bottom: 56.25%; position: relative; height: 0; border-radius: 15px; border: 2px solid rgba(255,255,255,0.2); }
+        .map-container iframe { left: 0; top: 0; height: 100%; width: 100%; position: absolute; }
+        .fade-in { animation: fadeIn 0.8s ease-in-out; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }

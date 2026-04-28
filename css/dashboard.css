@@ -1,0 +1,66 @@
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@700&family=Lato:wght@300;400;700&display=swap');
+
+        :root {
+            --orange: #E8621A;
+            --gold: #D4A017;
+            --red: #ff6b78;
+            --gray: #ccc;
+        }
+
+        body {
+            font-family: 'Lato', sans-serif;
+            background: url('https://i.pinimg.com/736x/d5/fa/66/d5fa660d2e02cb8b5f2c3e1489919426.jpg') center/cover fixed;
+            color: #fff;
+            min-height: 100vh;
+        }
+        body::before {
+            content: ""; position: fixed; inset: 0;
+            background: rgba(10,8,5,.82); backdrop-filter: blur(4px);
+            z-index: -1;
+        }
+
+        .navbar {
+            background: rgba(26,18,9,.9) !important;
+            border-bottom: 1px solid rgba(232,98,26,.3);
+        }
+        .navbar-brand { font-family: 'Cinzel', serif; font-weight: 700; color: #fff; }
+        .navbar-brand span { color: var(--orange); }
+
+        .card {
+            background: rgba(255,255,255,.05) !important;
+            border: 1px solid rgba(255,255,255,.1) !important;
+            border-radius: 15px !important;
+            color: #fff;
+        }
+        .card h6 { color: rgba(255,255,255,.6); font-size: .85rem; }
+        .card h4 { font-family: 'Cinzel', serif; color: var(--gold); }
+
+        .table thead th {
+            background: rgba(26,18,9,.6);
+            color: rgba(255,255,255,.7);
+            text-transform: uppercase;
+            font-size: .8rem;
+        }
+        .table tbody td {
+            background: transparent;
+            color: rgba(255,255,255,.85);
+            border-bottom: 1px solid rgba(255,255,255,.1);
+            padding: 12px;
+        }
+
+        .badge-paket {
+            background: rgba(232,98,26,.2);
+            color: var(--orange);
+            border-radius: 20px;
+            padding: 4px 10px;
+            font-size: .75rem;
+        }
+
+        .badge-bps {
+            background: rgba(52,152,219,.2);
+            color: #3498db;
+            border: 1px solid rgba(52,152,219,.3);
+            border-radius: 20px;
+            padding: 3px 10px;
+            font-size: .75rem;
+        }

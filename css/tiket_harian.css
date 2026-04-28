@@ -1,0 +1,41 @@
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@700&family=Lato:wght@300;400;700&display=swap');
+        :root { --orange:#E8621A; --gold:#D4A017; }
+        * { box-sizing:border-box; }
+        body {
+        font-family:'Lato',sans-serif; min-height:100vh; color:#fff;
+        background:url('https://i.pinimg.com/736x/d5/fa/66/d5fa660d2e02cb8b5f2c3e1489919426.jpg') center/cover fixed;
+        }
+        body::before { content:''; position:fixed; inset:0; background:rgba(10,8,5,.82); backdrop-filter:blur(4px); z-index:0; }
+        .wrap { position:relative; z-index:1; min-height:100vh; }
+        .topbar { background:rgba(26,18,9,.95); border-bottom:1px solid rgba(232,98,26,.3); padding:.9rem 1.5rem; display:flex; align-items:center; justify-content:space-between; position:sticky; top:0; z-index:100; }
+        .brand { font-family:'Cinzel',serif; font-size:1.2rem; font-weight:700; color:#fff; }
+        .brand span { color:var(--orange); }
+        .admin-badge { background:rgba(232,98,26,.2); border:1px solid rgba(232,98,26,.4); color:var(--orange); padding:4px 12px; border-radius:20px; font-size:.78rem; font-weight:700; letter-spacing:1px; }
+        .btn-logout { background:transparent; border:1px solid rgba(255,255,255,.25); color:rgba(255,255,255,.6); padding:6px 14px; border-radius:6px; font-size:.82rem; text-decoration:none; transition:all .2s; display:inline-flex; align-items:center; gap:6px; }
+        .btn-logout:hover { background:rgba(220,53,69,.2); color:#ff6b78; border-color:rgba(220,53,69,.5); }
+        .content { max-width:1200px; margin:0 auto; padding:2rem 1.5rem; }
+        .page-title { font-family:'Cinzel',serif; font-size:1.8rem; font-weight:700; }
+        .page-title span { color:var(--orange); }
+        .stat-card { background:rgba(255,255,255,.05); border:1px solid rgba(255,255,255,.1); border-radius:12px; padding:1.4rem; transition:all .3s; }
+        .stat-card:hover { background:rgba(232,98,26,.1); border-color:rgba(232,98,26,.35); }
+        .stat-num { font-family:'Cinzel',serif; font-size:2rem; font-weight:700; color:var(--gold); }
+        .stat-lbl { font-size:.78rem; letter-spacing:1.5px; text-transform:uppercase; color:rgba(255,255,255,.45); margin-top:4px; }
+        .stat-icon { font-size:2rem; opacity:.3; float:right; margin-top:-6px; }
+        .chart-card { background:rgba(255,255,255,.05); border:1px solid rgba(255,255,255,.1); border-radius:14px; padding:1.5rem; margin-bottom:2rem; }
+        .chart-title { font-family:'Cinzel',serif; font-size:.95rem; font-weight:700; color:var(--gold); margin-bottom:.4rem; display:flex; align-items:center; gap:8px; }
+        .chart-sub { font-size:.78rem; color:rgba(255,255,255,.4); margin-bottom:1.2rem; }
+        .badge-live { background:rgba(25,135,84,.2); color:#6fff9e; border:1px solid rgba(25,135,84,.4); padding:2px 8px; border-radius:20px; font-size:.7rem; font-weight:700; }
+        .badge-fallback { background:rgba(255,193,7,.15); color:#ffd654; border:1px solid rgba(255,193,7,.3); padding:2px 8px; border-radius:20px; font-size:.7rem; font-weight:700; }
+        .sec-title { font-family:'Cinzel',serif; font-size:1rem; font-weight:700; color:var(--gold); margin-bottom:1.2rem; padding-bottom:.7rem; border-bottom:1px solid rgba(255,255,255,.1); display:flex; align-items:center; gap:8px; }
+        .table-card { background:rgba(255,255,255,.05); border:1px solid rgba(255,255,255,.1); border-radius:14px; overflow:hidden; margin-bottom:2rem; }
+        .table { margin:0; }
+        .table thead th { background:rgba(26,18,9,.8); color:rgba(255,255,255,.6); font-size:.78rem; letter-spacing:1.5px; text-transform:uppercase; border-bottom:1px solid rgba(255,255,255,.1); padding:12px 16px; font-weight:600; }
+        .table tbody td { background:transparent; color:rgba(255,255,255,.85); border-bottom:1px solid rgba(255,255,255,.06); padding:11px 16px; font-size:.88rem; vertical-align:middle; }
+        .table tbody tr:hover td { background:rgba(255,255,255,.04); }
+        .badge-lunas { background:rgba(25,135,84,.2); color:#6fff9e; border:1px solid rgba(25,135,84,.4); padding:3px 10px; border-radius:20px; font-size:.78rem; font-weight:700; }
+        .badge-pending { background:rgba(255,193,7,.15); color:#ffd654; border:1px solid rgba(255,193,7,.35); padding:3px 10px; border-radius:20px; font-size:.78rem; font-weight:700; }
+        .btn-hapus { background:rgba(220,53,69,.15); border:1px solid rgba(220,53,69,.4); color:#ff6b78; padding:5px 14px; border-radius:6px; font-size:.8rem; font-weight:700; transition:all .2s; cursor:pointer; }
+        .btn-hapus:hover { background:rgba(220,53,69,.3); }
+        select.status-select { background:rgba(255,255,255,.08); border:1px solid rgba(255,255,255,.2); color:#fff; border-radius:6px; padding:4px 8px; font-size:.82rem; cursor:pointer; }
+        select.status-select option { background:#1A1209; }
+        .alert-ok { background:rgba(25,135,84,.15); border:1px solid rgba(25,135,84,.4); color:#6fff9e; border-radius:10px; padding:12px 16px; font-size:.88rem; margin-bottom:1.5rem; }
