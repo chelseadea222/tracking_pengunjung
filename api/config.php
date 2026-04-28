@@ -1,9 +1,9 @@
 <?php
-$host     = getenv('gateway01.ap-southeast-1.prod.alicloud.tidbcloud.com');
-$port     = getenv('4000');
-$dbname   = getenv('Tracking');
-$username = getenv('rYKFcN4zmjYBxLa.root');
-$password = getenv('h0UwkOyj9GVT7FpW');
+$host     = 'gateway01.ap-southeast-1.prod.alicloud.tidbcloud.com';
+$port     = '4000';
+$dbname   = 'Tracking';
+$username = 'rYKFcN4zmjYBxLa.root';
+$password = 'h0UwkOyj9GVT7FpW';
 
 $ca_path = '/etc/ssl/certs/ca-certificates.crt'; 
 if (!file_exists($ca_path)) {
