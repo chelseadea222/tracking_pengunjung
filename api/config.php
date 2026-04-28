@@ -2,7 +2,7 @@
 $host     = getenv('TIDB_HOST');
 $port     = getenv('TIDB_PORT');
 $dbname   = getenv('TIDB_DATABASE');
-$username = getenv('TIDB_USER');
+$username = getenv('TIDB_USERNAME');
 $password = getenv('TIDB_PASSWORD');
 
 $ca_path = '/etc/ssl/certs/ca-certificates.crt'; 

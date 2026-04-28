@@ -6,7 +6,7 @@ if (session_status() === PHP_SESSION_NONE) {
 $host     = getenv('TIDB_HOST');
 $port     = getenv('TIDB_PORT');
 $db_name  = getenv('TIDB_DATABASE');
-$username = getenv('TIDB_USER');
+$username = getenv('TIDB_USERNAME');
 $password = getenv('TIDB_PASSWORD');
 
 // Mencari lokasi sertifikat SSL bawaan server Vercel (Amazon Linux / Debian)
