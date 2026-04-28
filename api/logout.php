@@ -1,8 +1,9 @@
 <?php
-setcookie('user_id', '', time() - 3600, "/");
-setcookie('nama', '', time() - 3600, "/");
-setcookie('email', '', time() - 3600, "/");
-setcookie('role', '', time() - 3600, "/");
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+}
+
+session_destroy();
 
 header("Location: login.php");
 exit;

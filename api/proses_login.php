@@ -19,10 +19,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
         // Pengecekan password
         if ($user && password_verify($password, $user['password'])) {
-            setcookie('user_id', $user['id'], time() + (86400 * 30), "/");
-            setcookie('nama', $user['nama'], time() + (86400 * 30), "/");
-            setcookie('email', $user['email'], time() + (86400 * 30), "/");
-            setcookie('role', $user['role'], time() + (86400 * 30), "/");
+            $_SESSION['user_id'] = $user['id'];
+            $_SESSION['nama'] = $user['nama'];
+            $_SESSION['email'] = $user['email'];
+            $_SESSION['role'] = $user['role'];
 
             $target_url = (strtolower($user['role']) === 'admin') ? 'tiket_harian.php' : 'tiket.php';
             
