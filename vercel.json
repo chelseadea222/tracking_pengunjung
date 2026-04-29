@@ -12,9 +12,6 @@
     { "src": "/logout", "dest": "/api/logout.php" },
     { "src": "/tiket", "dest": "/api/tiket.php" },
     { "src": "/tiket-harian", "dest": "/api/tiket_harian.php" },
-    { "src": "/proses-login", "dest": "/api/proses_login.php" },
-    { "src": "/proses-register", "dest": "/api/proses_register.php" },
-    { "src": "/proses-tiket", "dest": "/api/proses_tiket.php" },
     { "src": "/css/(.*)", "dest": "/css/$1" },
     { "src": "/(.*)", "dest": "/api/$1.php" }
   ]
