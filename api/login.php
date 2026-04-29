@@ -1,6 +1,6 @@
 <?php
-ob_start(); // ✅ HARUS PALING ATAS
 
+ob_start();
 
 if (session_status() === PHP_SESSION_NONE) {
     session_start();
@@ -17,9 +17,9 @@ require_once __DIR__ . '/proses_login.php';
 //         exit;
 //     }
 // }
+// kalau sudah login, langsung ke tiket harian
 ?>
 <!DOCTYPE html>
-...sisa HTML kamu...
 <html lang="id">
 <head>
     <meta charset="UTF-8">
@@ -61,7 +61,7 @@ require_once __DIR__ . '/proses_login.php';
 
 
     <hr class="divider">
-    <p class="reg-link">Belum punya akun? <a href="/register">Daftar di sini</a></p>
+    <p class="reg-link">Belum punya akun? <a href="register.php">Daftar di sini</a></p>
     
 </div>
 </body>

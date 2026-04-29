@@ -23,10 +23,10 @@ require_once 'api_dashboard.php';    // Penting agar data grafik muncul
         <div class="container-fluid">
             <a class="navbar-brand" href="#">Bromo<span>Dashboard</span></a>
             <div class="d-flex align-items-center ms-auto">
-                <a href="/login" class="btn btn-light me-2">
+                <a href="login.php" class="btn btn-light me-2">
                     <i class="bi bi-box-arrow-in-right"></i> Masuk
                 </a>
-                <a href="/register" class="btn btn-warning">
+                <a href="register.php" class="btn btn-warning">
                     <i class="bi bi-person-plus"></i> Daftar
                 </a>
             </div>

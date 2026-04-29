@@ -15,7 +15,7 @@ require_once __DIR__ . '/proses_tiket_harian.php';
 // Hapus atau perbaiki logika ini. 
 // Biasanya halaman ini justru HARUS diakses jika sudah login sebagai admin.
 if (!isset($_SESSION['role']) || $_SESSION['role'] !== 'admin') {
-    header("Location: /login");
+    header("Location: login.php");
     exit();
 }
 ?>
@@ -39,7 +39,7 @@ if (!isset($_SESSION['role']) || $_SESSION['role'] !== 'admin') {
         <div class="brand">BROMO<span>TRACK</span> <small style="font-size:.7rem;opacity:.4;font-family:Lato">ADMIN</small></div>
         <div class="d-flex align-items-center gap-2">
             <span class="admin-badge"><i class="bi bi-shield-fill me-1"></i>ADMIN</span>
-            <a href="/logout" class="btn-logout"><i class="bi bi-box-arrow-right"></i> Keluar</a>
+            <a href="logout.php" class="btn-logout"><i class="bi bi-box-arrow-right"></i> Keluar</a>
         </div>
     </nav>
 
@@ -119,7 +119,7 @@ if (!isset($_SESSION['role']) || $_SESSION['role'] !== 'admin') {
         </div>
 
         <!-- BACKUP -->
-        <a href="/backup_tiket" class="btn btn-warning mb-4">
+        <a href="backup_tiket.php" class="btn btn-warning mb-4">
             <i class="bi bi-download me-2"></i> Backup Tiket (CSV)
         </a>
 

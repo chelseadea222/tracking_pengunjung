@@ -31,7 +31,7 @@ require_once __DIR__ . '/../api/proses_tiket.php';
                     <span class="text-light small opacity-75">
                         <i class="bi bi-person-circle me-1"></i><?= htmlspecialchars($_SESSION['nama']) ?>
                     </span>
-                    <a href="/logout" class="btn btn-outline-light btn-sm">
+                    <a href="logout.php" class="btn btn-outline-light btn-sm">
                         <i class="bi bi-box-arrow-left me-1"></i>Logout
                     </a>
                 <?php endif; ?>
@@ -118,7 +118,7 @@ require_once __DIR__ . '/../api/proses_tiket.php';
                         <button type="submit" name="submit_tiket" class="btn btn-bromo btn-lg w-100 rounded-pill mt-2 shadow">
                             Pesan Tiket Bromo Sekarang <i class="bi bi-arrow-right ms-2"></i>
                         </button>
-                        <a href="/logout" class="btn btn-outline-light btn-sm">
+                        <a href="logout.php" class="btn btn-outline-light btn-sm">
                         <i class="bi bi-box-arrow-left me-1"></i> Logout
                     </a>
                     </form>

@@ -2,7 +2,7 @@
 session_start();
 require_once __DIR__ . '/../api/proses_backup.php';
 if (!isset($_SESSION['nama'])) {
-    header("Location: /login");
+    header("Location: login.php");
     exit();
 }
 
@@ -64,16 +64,16 @@ if (!isset($_SESSION['nama'])) {
 
 <!-- Tombol Backup & Navigasi (hanya di bawah tabel) -->
 <div class="mt-3 d-flex flex-wrap gap-2">
-    <a href="/backup_tiket?backup=csv" class="btn-glass btn-csv">
+    <a href="backup_tiket.php?backup=csv" class="btn-glass btn-csv">
         <i class="bi bi-file-earmark-spreadsheet"></i> Backup ke CSV
     </a>
-    <a href="/backup_tiket?backup=json" class="btn-glass btn-json">
+    <a href="backup_tiket.php?backup=json" class="btn-glass btn-json">
         <i class="bi bi-calendar-check"></i> Backup Per Bulan (JSON)
     </a>
-    <a href="/dashboard" class="btn-glass btn-dashboard">
+    <a href="dashboard.php" class="btn-glass btn-dashboard">
         <i class="bi bi-speedometer2"></i> Balik ke Dashboard
     </a>
-    <a href="/tiket-harian" class="btn-glass btn-tiket">
+    <a href="tiket_harian.php" class="btn-glass btn-tiket">
         <i class="bi bi-calendar-day"></i> Data Tiket Harian
     </a>
 </div>

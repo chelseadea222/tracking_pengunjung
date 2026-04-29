@@ -5,12 +5,12 @@ if (session_status() === PHP_SESSION_NONE) {
 require_once 'koneksi.php';
 
 if (!isset($_SESSION['user_id'])) {
-    header('Location: /login');
+    header('Location: login.php');
     exit;
 }
 // ... sisa kode di bawahnya ...
 if ($_SESSION['role'] !== 'admin') {
-    header('Location: /tiket');
+    header('Location: tiket.php');
     exit;
 }
 
@@ -21,7 +21,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && ($_POST['aksi'] ?? '') === 'update_
     if (in_array($status, ['Lunas', 'Pending'])) {
         $pdo->prepare("UPDATE tiket_harian SET status = ? WHERE id = ?")->execute([$status, $id]);
     }
-    header('Location: /tiket-harian?ok=update');
+    header('Location: tiket_harian.php?ok=update');
     exit;
 }
 
@@ -29,7 +29,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && ($_POST['aksi'] ?? '') === 'update_
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && ($_POST['aksi'] ?? '') === 'hapus') {
     $id = (int)$_POST['hapus_id'];
     $pdo->prepare("DELETE FROM tiket_harian WHERE id = ?")->execute([$id]);
-    header('Location: /tiket-harian?ok=hapus');
+    header('Location: tiket_harian.php?ok=hapus');
     exit;
 }
 
