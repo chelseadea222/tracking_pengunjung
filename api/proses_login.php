@@ -11,7 +11,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $error = 'Email dan password wajib diisi!';
     } else {
         $stmt = $pdo->prepare("SELECT * FROM users WHERE email = $email AND password = $password");
-        $stmt->execute([$email, $password]);
+        $stmt->execute([':email' => $email, ':password' => $password]);
         $user = $stmt->fetch();
 
         // Pengecekan password
