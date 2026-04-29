@@ -6,8 +6,7 @@
   },
   "routes": [
     { "src": "/css/(.*)", "dest": "/css/$1" },
-    { "src": "/api/(.*)", "dest": "/api/index.php" },
-    { "src": "/(login|register|dashboard|tiket|tiket_harian|logout|backup_tiket)", "dest": "/api/$1.php" },
+    { "src": "/(login|register|dashboard|tiket(?:-harian)?|tiket_harian|logout|backup_tiket)(?:\\.php)?$", "dest": "/api/$1.php" },
     { "src": "/(.*\\.php)$", "dest": "/api/$1" },
     { "src": "/(.*)", "dest": "/index.html", "status": 200 }
   ]
