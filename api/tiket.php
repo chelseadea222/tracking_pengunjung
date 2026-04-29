@@ -238,6 +238,10 @@ require_once __DIR__ . '/../api/proses_tiket.php';
             }
         }
 
+        <a href="logout.php" class="btn btn-outline-secondary w-100 mt-3">
+        <i class="bi bi-box-arrow-left me-2"></i> Logout
+    </a>
+
         fetchWeather();
     });
     </script>

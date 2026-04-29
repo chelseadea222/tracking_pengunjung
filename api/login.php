@@ -63,9 +63,6 @@ if (isset($_COOKIE['role'])) {
     <hr class="divider">
     <p class="reg-link">Belum punya akun? <a href="register.php">Daftar di sini</a></p>
     
-    <a href="logout.php" class="btn btn-outline-secondary w-100 mt-3">
-        <i class="bi bi-box-arrow-left me-2"></i> Logout
-    </a>
 </div>
 </body>
 </html>
