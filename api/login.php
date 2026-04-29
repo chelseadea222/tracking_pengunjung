@@ -1,8 +1,8 @@
 <?php
-
-ob_start();
+ob_start(); // ✅ HARUS PALING ATAS
 
 if (session_status() === PHP_SESSION_NONE) {
+    session_save_path('/tmp');
     session_start();
 }
 
@@ -17,9 +17,9 @@ require_once __DIR__ . '/proses_login.php';
 //         exit;
 //     }
 // }
-// kalau sudah login, langsung ke tiket harian
 ?>
 <!DOCTYPE html>
+...sisa HTML kamu...
 <html lang="id">
 <head>
     <meta charset="UTF-8">

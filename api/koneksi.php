@@ -1,5 +1,7 @@
 <?php
+// Ganti session dengan cara ini untuk Vercel
 if (session_status() === PHP_SESSION_NONE) {
+    session_save_path('/tmp');
     session_start();
 }
 
@@ -9,22 +11,19 @@ $dbname   = 'Tracking';
 $username = 'rYKFcN4zmjYBxLa.root';
 $password = 'h0UwkOyj9GVT7FpW';
 
-// Mencari lokasi sertifikat SSL bawaan server Vercel (Amazon Linux / Debian)
-$ca_path = '/etc/ssl/certs/ca-certificates.crt'; 
-if (!file_exists($ca_path)) {
-    $ca_path = '/etc/pki/tls/certs/ca-bundle.crt'; 
-}
-
 try {
     $dsn = "mysql:host=$host;port=$port;dbname=$dbname;charset=utf8mb4";
     $pdo = new PDO($dsn, $username, $password, [
-        PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
+        PDO::ATTR_ERRMODE            => PDO::ERRMODE_EXCEPTION,
         PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
-        // Dua baris di bawah ini WAJIB untuk TiDB Serverless
-        PDO::MYSQL_ATTR_SSL_CA => $ca_path,
+        PDO::MYSQL_ATTR_SSL_CA       => false,
         PDO::MYSQL_ATTR_SSL_VERIFY_SERVER_CERT => false
     ]);
 } catch (PDOException $e) {
-    die("<b style='color:red'>Koneksi database gagal:</b> " . $e->getMessage());
+    http_response_code(500);
+    die(json_encode([
+        'error' => 'Koneksi database gagal',
+        'message' => $e->getMessage()
+    ]));
 }
 ?>
