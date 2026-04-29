@@ -10,11 +10,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if (!$email || !$password) {
         $error = 'Email dan password wajib diisi!';
     } else {
-        $stmt = $pdo->prepare("SELECT * FROM users WHERE email = :email");
-        $stmt->execute([
-        ':email' => $email
-        ]);
-        $user = $stmt->fetch();
+        $query = "SELECT * FROM users WHERE email='" . mysqli_real_escape_string($conn, $email) . "'";
+        $result = mysqli_query($conn, $query);
+
+        if ($result && mysqli_num_rows($result) > 0) {
+            $user = mysqli_fetch_assoc($result); // ambil data user sebagai array asosiatif
+        } else {
+            $user = false; // tidak ada user ditemukan
+        }
 
         // Pengecekan password
         if ($users && password_verify($password, $users['password'])) {
