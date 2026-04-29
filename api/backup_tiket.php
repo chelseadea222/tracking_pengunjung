@@ -70,10 +70,10 @@ if (!isset($_SESSION['nama'])) {
     <a href="/backup_tiket?backup=json" class="btn-glass btn-json">
         <i class="bi bi-calendar-check"></i> Backup Per Bulan (JSON)
     </a>
-    <a href="dashboard.php" class="btn-glass btn-dashboard">
+    <a href="/dashboard" class="btn-glass btn-dashboard">
         <i class="bi bi-speedometer2"></i> Balik ke Dashboard
     </a>
-    <a href="tiket_harian.php" class="btn-glass btn-tiket">
+    <a href="/tiket-harian" class="btn-glass btn-tiket">
         <i class="bi bi-calendar-day"></i> Data Tiket Harian
     </a>
 </div>
