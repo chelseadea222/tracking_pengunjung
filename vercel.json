@@ -3,5 +3,23 @@
     "api/**/*.php": {
       "runtime": "vercel-php@0.8.0"
     }
-  }
+  },
+  "routes": [
+    { "src": "/", "dest": "/api/landing_page.php" },
+    { "src": "/login", "dest": "/api/login.php" },
+    { "src": "/register", "dest": "/api/register.php" },
+    { "src": "/dashboard", "dest": "/api/dashboard.php" },
+    { "src": "/logout", "dest": "/api/logout.php" },
+    { "src": "/tiket", "dest": "/api/tiket.php" },
+    { "src": "/tiket-harian", "dest": "/api/tiket_harian.php" },
+    { "src": "/backup-tiket", "dest": "/api/backup_tiket.php" },
+    { "src": "/proses-login", "dest": "/api/proses_login.php" },
+    { "src": "/proses-register", "dest": "/api/proses_register.php" },
+    { "src": "/proses-tiket", "dest": "/api/proses_tiket.php" },
+    { "src": "/proses-tiket-harian", "dest": "/api/proses_tiket_harian.php" },
+    { "src": "/api-tiket", "dest": "/api/api_tiket.php" },
+    { "src": "/api-harian", "dest": "/api/api_harian.php" },
+    { "src": "/css/(.*)", "dest": "/css/$1" },
+    { "src": "/(.*)", "dest": "/api/$1.php" }
+  ]
 }
