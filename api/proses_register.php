@@ -26,7 +26,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $hashed = password_hash($password, PASSWORD_DEFAULT);
             $stmt = $pdo->prepare("INSERT INTO users (nama, email, password, role) VALUES (?, ?, ?, 'user')");
             if ($stmt->execute([$nama, $email, $hashed])) {
-                header('Location: login.php?register=success');
+                header('Location: /login?register=success');
                 exit;
             } else {
                 $error = 'Gagal mendaftar, coba lagi.';

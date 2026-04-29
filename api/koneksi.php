@@ -6,12 +6,12 @@ if (session_status() === PHP_SESSION_NONE) {
     session_start();
 }
 
-// Database credentials - GUNAKAN ENV VARIABLES DI PRODUCTION
-$host     = getenv('DB_HOST') ?: 'gateway01.ap-southeast-1.prod.alicloud.tidbcloud.com';
-$port     = getenv('DB_PORT') ?: '4000';
-$dbname   = getenv('DB_NAME') ?: 'Tracking';
-$username = getenv('DB_USER') ?: 'rYKFcN4zmjYBxLa.root';
-$password = getenv('DB_PASS') ?: 'h0UwkOyj9GVT7FpW';
+// Database credentials - Sesuai dengan ENV VARIABLES di Vercel
+$host     = getenv('HOST') ?: 'gateway01.ap-southeast-1.prod.alicloud.tidbcloud.com';
+$port     = getenv('PORT') ?: '4000';
+$dbname   = getenv('DATABASE') ?: 'Tracking';
+$username = getenv('USERNAME') ?: 'rYKFcN4zmjYBxLa.root';
+$password = getenv('PASSWORD') ?: 'h0UwkOyj9GVT7FpW';
 
 try {
     // SSL untuk TiDB di Vercel

@@ -31,9 +31,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             // Pakai absolute path
             $base = 'https://' . $_SERVER['HTTP_HOST'];
             if (strtolower($users['role']) === 'admin') {
-                header("Location: $base/tiket-harian.php");
+                header("Location: $base/tiket-harian");
             } else {
-                header("Location: $base/tiket.php");
+                header("Location: $base/tiket");
             }
             exit;
         } else {
