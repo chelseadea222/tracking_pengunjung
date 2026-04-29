@@ -5,12 +5,12 @@ if (session_status() === PHP_SESSION_NONE) {
 require_once 'koneksi.php';
 
 if (!isset($_SESSION['user_id'])) {
-    header('Location: /login.php');
+    header('Location: login.php');
     exit;
 }
 // ... sisa kode di bawahnya ...
 if ($_SESSION['role'] !== 'admin') {
-    header('Location: /tiket.php');
+    header('Location: tiket.php');
     exit;
 }
 

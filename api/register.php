@@ -62,7 +62,7 @@ require_once __DIR__ . '/../api/proses_register.php';
     </form>
 
     <hr class="divider">
-    <p class="login-link">Sudah punya akun? <a href="/login.php">Login di sini</a></p>
+    <p class="login-link">Sudah punya akun? <a href="login.php">Login di sini</a></p>
 </div>
 </body>
 </html>

@@ -26,10 +26,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
             if (isset($_SESSION['role'])) {
             if (strtolower($_SESSION['role']) === 'admin') {
-                header('Location: /tiket_harian.php');
+                header('Location: tiket_harian.php');
                 exit;
             } else {
-                header('Location: /tiket.php');
+                header('Location: tiket.php');
                 exit;
         }
         }

@@ -2,7 +2,7 @@
 session_start();
 require_once __DIR__ . '/../api/proses_backup.php';
 if (!isset($_SESSION['nama'])) {
-    header("Location: /login.php");
+    header("Location: login.php");
     exit();
 }
 
