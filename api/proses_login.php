@@ -24,7 +24,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
             // ✅ Redirect berdasarkan role
             if (strtolower($user['role']) === 'admin') {
-                header('Location: tiket-harian,php');
+                header('Location: tiket-harian.php');
             } else {
                 header('Location: tiket.php');
             }
