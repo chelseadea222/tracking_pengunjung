@@ -31,9 +31,11 @@ require_once __DIR__ . '/../api/proses_tiket.php';
                     <span class="text-light small opacity-75">
                         <i class="bi bi-person-circle me-1"></i><?= htmlspecialchars($_SESSION['nama']) ?>
                     </span>
-                    <a href="logout.php" class="btn btn-outline-light btn-sm">
-                        <i class="bi bi-box-arrow-left me-1"></i>Logout
-                    </a>
+                    <?php if (isset($_SESSION['user_id'])): ?>
+                <a href="logout.php" class="btn btn-outline-light btn-sm">
+                    <i class="bi bi-box-arrow-left me-1"></i>Logout
+                </a>
+            <?php endif; ?>
                 <?php endif; ?>
             </div>
         </div>
