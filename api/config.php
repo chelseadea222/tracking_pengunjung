@@ -12,7 +12,7 @@ if (!file_exists($ca_path)) {
 
 try {
     $pdo = new PDO(
-        "mysql:host=gateway01.ap-southeast-1.prod.alicloud.tidbcloud.com;port=4000;dbname=Tracking;charset=utf8mb4", 
+        "mysql:host=$host;port=$port;dbname=$dbname;charset=utf8", 
         $username, 
         $password,
         [
