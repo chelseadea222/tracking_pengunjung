@@ -10,12 +10,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if (!$email || !$password) {
         $error = 'Email dan password wajib diisi!';
     } else {
-        $stmt = $pdo->prepare("SELECT * FROM users WHERE email = $email AND password = $password");
-        $stmt->execute([
-            ':email' => $email, 
-            ':password' => $password
-            ]);
-        $user = $stmt->fetch();
+        $query = "SELECT * FROM tbl_user WHERE username='$username'";
+        $result = mysqli_query($conn, $query);
 
         // Pengecekan password
         if ($users && password_verify($password, $users['password'])) {
