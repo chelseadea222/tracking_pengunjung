@@ -1,23 +1,23 @@
 <?php
+
 ob_start();
 
-session_save_path('/tmp');
 if (session_status() === PHP_SESSION_NONE) {
     session_start();
 }
 
 require_once __DIR__ . '/proses_login.php';
 
-// Cek session
-if (isset($_SESSION['role'])) {
-    if (strtolower($_SESSION['role']) === 'admin') {
-        header('Location: tiket_harian.php');
-        exit;
-    } else {
-        header('Location: tiket.php');
-        exit;
-    }
-}
+// if (isset($_SESSION['role'])) {
+//     if (strtolower($_SESSION['role']) === 'admin') {
+//         header('Location: tiket_harian.php');
+//         exit;
+//     } else {
+//         header('Location: tiket.php');
+//         exit;
+//     }
+// }
+// kalau sudah login, langsung ke tiket harian
 ?>
 <!DOCTYPE html>
 <html lang="id">
