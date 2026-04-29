@@ -61,7 +61,7 @@ require_once __DIR__ . '/proses_login.php';
 
 
     <hr class="divider">
-    <p class="reg-link">Belum punya akun? <a href="register.php">Daftar di sini</a></p>
+    <p class="reg-link">Belum punya akun? <a href="/register.php">Daftar di sini</a></p>
     
 </div>
 </body>

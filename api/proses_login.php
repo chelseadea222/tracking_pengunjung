@@ -7,19 +7,35 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $email    = trim($_POST['email'] ?? '');
     $password = $_POST['password'] ?? '';
 
-$email = mysqli_real_escape_string($conn, $_POST['email']);
-$query = "SELECT * FROM users WHERE email='$email'";
-$result = mysqli_query($conn, $query);
-
-if ($result && mysqli_num_rows($result) > 0) {
-    $user = mysqli_fetch_assoc($result);
-    if (password_verify($_POST['password'], $user['password'])) {
-        $_SESSION['role'] = $user['role'];
-        // redirect sesuai role
+    if (!$email || !$password) {
+        $error = 'Email dan password wajib diisi!';
     } else {
-        $error = "Password salah!";
+        $stmt = $pdo->prepare("SELECT * FROM users WHERE email = :email");
+        $stmt->execute([':email' => $email]);
+        $user = $stmt->fetch();
+
+        // Pengecekan password
+        if ($users && password_verify($password, $users['password'])) {
+            $_SESSION['user_id'] = $users['id'];
+            $_SESSION['nama'] = $users['nama'];
+            $_SESSION['email'] = $users['email'];
+            $_SESSION['role'] = $users['role'];
+
+            // Pastikan session disimpan sebelum redirect
+            session_write_close();
+
+            if (isset($_SESSION['role'])) {
+            if (strtolower($_SESSION['role']) === 'admin') {
+                header('Location: /tiket_harian.php');
+                exit;
+            } else {
+                header('Location: /tiket.php');
+                exit;
+        }
+        }
+            
+        } else {
+            $error = 'Email atau password salah!';
+        }
     }
-} else {
-    $error = "Email tidak ditemukan!";
-}
 }
