@@ -21,7 +21,7 @@ try {
     ];
     
     // Set SSL options untuk TiDB (jangan disable di production)
-    if ($_ENV['ENVIRONMENT'] !== 'development') {
+    if (getenv('ENABLE_SSL')) {
         $options[PDO::MYSQL_ATTR_SSL_CA] = '/etc/ssl/certs/ca-certificates.crt';
         $options[PDO::MYSQL_ATTR_SSL_VERIFY_SERVER_CERT] = true;
     } else {
