@@ -5,6 +5,6 @@ if (session_status() === PHP_SESSION_NONE) {
 
 session_destroy();
 
-header("Location: login.php");
+header("Location: landing_page.php");
 exit;
 ?>

@@ -8,8 +8,8 @@ if (session_status() === PHP_SESSION_NONE) {
 
 require_once __DIR__ . '/proses_login.php';
 
-if (isset($_SESSION['role']) && !empty($_SESSION['user_id'])) {
-    if (strtolower($_SESSION['role']) === 'admin') {
+if (isset($_COOKIE['role'])) {
+    if (strtolower($_COOKIE['role']) === 'admin') {
         header('Location: tiket_harian.php');
         exit;
     } else {
@@ -62,6 +62,10 @@ if (isset($_SESSION['role']) && !empty($_SESSION['user_id'])) {
 
     <hr class="divider">
     <p class="reg-link">Belum punya akun? <a href="register.php">Daftar di sini</a></p>
+    
+    <a href="logout.php" class="btn btn-outline-secondary w-100 mt-3">
+        <i class="bi bi-box-arrow-left me-2"></i> Logout
+    </a>
 </div>
 </body>
 </html>
