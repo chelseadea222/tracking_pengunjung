@@ -13,17 +13,17 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         // ✅ Query hanya email dulu
         $stmt = $pdo->prepare("SELECT * FROM users WHERE email = :email");
         $stmt->execute([':email' => $email]);
-        $user = $stmt->fetch(); // ✅ pakai $user konsisten
+        $users = $stmt->fetch(); // ✅ pakai $user konsisten
 
-        if ($user && password_verify($password, $user['password'])) {
+        if ($users && password_verify($password, $users['password'])) {
             // ✅ Set session dulu, JANGAN session_write_close sebelum redirect
-            $_SESSION['user_id'] = $user['id'];
-            $_SESSION['nama']    = $user['nama'];
-            $_SESSION['email']   = $user['email'];
-            $_SESSION['role']    = $user['role'];
+            $_SESSION['user_id'] = $users['id'];
+            $_SESSION['nama']    = $users['nama'];
+            $_SESSION['email']   = $users['email'];
+            $_SESSION['role']    = $users['role'];
 
             // ✅ Redirect berdasarkan role
-            if (strtolower($user['role']) === 'admin') {
+            if (strtolower($users['role']) === 'admin') {
                 header('Location: tiket-harian.php');
             } else {
                 header('Location: tiket.php');
