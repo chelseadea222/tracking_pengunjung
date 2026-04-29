@@ -23,7 +23,7 @@ require_once __DIR__ . '/../api/proses_tiket.php';
             <a class="navbar-brand fw-bold text-light fs-4" href="#">
                 <i class="bi bi-geo-alt-fill text-warning me-2"></i>Bromo<span class="text-warning">Ticket</span>
             </a>
-            <div class="d-flex align-items-center">
+            <div class="d-flex align-items-center gap-2">
                 <span class="badge bg-warning text-dark rounded-pill px-3 py-2 me-3">
                     <i class="bi bi-radar me-1"></i>Live ML API Sync
                 </span>
@@ -31,6 +31,9 @@ require_once __DIR__ . '/../api/proses_tiket.php';
                     <span class="text-light small opacity-75">
                         <i class="bi bi-person-circle me-1"></i><?= htmlspecialchars($_SESSION['nama']) ?>
                     </span>
+                    <a href="logout.php" class="btn btn-outline-light btn-sm">
+                        <i class="bi bi-box-arrow-left me-1"></i>Logout
+                    </a>
                 <?php endif; ?>
             </div>
         </div>
@@ -237,10 +240,6 @@ require_once __DIR__ . '/../api/proses_tiket.php';
                 }
             }
         }
-
-        <a href="logout.php" class="btn btn-outline-secondary w-100 mt-3">
-        <i class="bi bi-box-arrow-left me-2"></i> Logout
-    </a>
 
         fetchWeather();
     });
