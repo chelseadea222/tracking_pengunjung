@@ -1,21 +1,26 @@
 <?php
 
-if (session_status() === PHP_SESSION_NONE) {
-    session_save_path('/tmp');
-    session_start();
+if (!isset($_COOKIE['u_role']) || $_COOKIE['u_role'] !== 'admin') {
+    header("Location: /login.php");
+    exit();
 }
-var_dump($_COOKIE);
-die();
-
-// if (!isset($_SESSION['role']) || $_SESSION['role'] !== 'admin') {
-//     header("Location: /login.php");
-//     exit();
-// }
-
-
 
 require_once __DIR__ . '/api_tiket.php';
 require_once __DIR__ . '/proses_tiket_harian.php';
+// if (session_status() === PHP_SESSION_NONE) {
+//     session_save_path('/tmp');
+//     session_start();
+// }
+// var_dump($_COOKIE);
+// die();
+
+// // if (!isset($_SESSION['role']) || $_SESSION['role'] !== 'admin') {
+// //     header("Location: /login.php");
+// //     exit();
+// // }
+
+// require_once __DIR__ . '/api_tiket.php';
+// require_once __DIR__ . '/proses_tiket_harian.php';
 ?>
 <!DOCTYPE html>
 <html lang="id">
