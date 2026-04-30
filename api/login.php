@@ -8,15 +8,15 @@ if (session_status() === PHP_SESSION_NONE) {
 
 require_once __DIR__ . '/proses_login.php';
 
-// if (isset($_SESSION['role'])) {
-//     if (strtolower($_SESSION['role']) === 'admin') {
-//         header('Location: tiket_harian.php');
-//         exit;
-//     } else {
-//         header('Location: tiket.php');
-//         exit;
-//     }
-// }
+if (isset($_SESSION['role'])) {
+    if (strtolower($_SESSION['role']) === 'admin') {
+        header('Location: tiket-harian.php');
+        exit;
+    } else {
+        header('Location: tiket.php');
+        exit;
+    }
+}
 // kalau sudah login, langsung ke tiket harian
 ?>
 <!DOCTYPE html>
