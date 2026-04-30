@@ -45,12 +45,15 @@ $total_users      = $pdo->query("SELECT COUNT(*) FROM users WHERE role='user'")-
 $semua = $pdo->query("SELECT * FROM tiket_harian ORDER BY tanggal DESC")->fetchAll();
 
 // ─── DATA GRAFIK LOKAL (6 bulan terakhir) ───
+// ─── DATA GRAFIK LOKAL (6 bulan terakhir) ───
 $grafik = $pdo->query("
-    SELECT DATE_FORMAT(tanggal,'%b %Y') as bulan, SUM(jumlah) as total
+    SELECT DATE_FORMAT(tanggal,'%b %Y') as bulan, 
+           DATE_FORMAT(tanggal,'%Y-%m') as bulan_sort,
+           SUM(jumlah) as total
     FROM tiket_harian
     WHERE tanggal >= DATE_SUB(CURDATE(), INTERVAL 6 MONTH)
-    GROUP BY DATE_FORMAT(tanggal,'%Y-%m')
-    ORDER BY tanggal ASC
+    GROUP BY DATE_FORMAT(tanggal,'%Y-%m'), DATE_FORMAT(tanggal,'%b %Y')
+    ORDER BY bulan_sort ASC
 ")->fetchAll();
 $g_labels = json_encode(array_column($grafik, 'bulan'));
 $g_data   = json_encode(array_column($grafik, 'total'));
