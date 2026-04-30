@@ -3,21 +3,13 @@ ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 
-if (session_status() === PHP_SESSION_NONE) {
-    session_start();
+if (!isset($_COOKIE['role']) || $_COOKIE['role'] !== 'admin') {
+    header("Location: /login.php");
+    exit();
 }
-// Gunakan slash
 
 require_once __DIR__ . '/api_tiket.php'; 
 require_once __DIR__ . '/proses_tiket_harian.php'; 
-
-
-// Hapus atau perbaiki logika ini. 
-// Biasanya halaman ini justru HARUS diakses jika sudah login sebagai admin.
-if (!isset($_SESSION['role']) || $_SESSION['role'] !== 'admin') {
-    header("Location: login.php");
-    exit();
-}
 ?>
 <!DOCTYPE html>
 <html lang="id">
@@ -29,8 +21,6 @@ if (!isset($_SESSION['role']) || $_SESSION['role'] !== 'admin') {
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
     <link rel="stylesheet" href="../css/tiket_harian.css">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <style>
-    </style>
 </head>
 <body>
 <div class="wrap">
@@ -48,7 +38,7 @@ if (!isset($_SESSION['role']) || $_SESSION['role'] !== 'admin') {
         <div class="d-flex align-items-center justify-content-between mb-4 flex-wrap gap-3">
             <div>
                 <h1 class="page-title">Dashboard <span>Admin</span></h1>
-                <p style="color:rgba(255,255,255,.45);font-size:.88rem;">Selamat datang, <?= htmlspecialchars($_SESSION['nama'] ?? 'Admin') ?></p>
+                <p style="color:rgba(255,255,255,.45);font-size:.88rem;">Selamat datang, <?= htmlspecialchars($_COOKIE['nama'] ?? 'Admin') ?></p>
             </div>
         </div>
 
@@ -159,7 +149,7 @@ if (!isset($_SESSION['role']) || $_SESSION['role'] !== 'admin') {
                                     <input type="hidden" name="aksi" value="update_status">
                                     <input type="hidden" name="tiket_id" value="<?= $row['id'] ?>">
                                     <select name="status" class="status-select" onchange="this.form.submit()">
-                                        <option value="Lunas"   <?= ($row['status'] ?? '') === 'Lunas'   ? 'selected' : '' ?>>Lunas</option>
+                                        <option value="Lunas" <?= ($row['status'] ?? '') === 'Lunas' ? 'selected' : '' ?>>Lunas</option>
                                         <option value="Pending" <?= ($row['status'] ?? 'Pending') === 'Pending' ? 'selected' : '' ?>>Pending</option>
                                     </select>
                                 </form>
@@ -186,7 +176,6 @@ if (!isset($_SESSION['role']) || $_SESSION['role'] !== 'admin') {
 </div>
 
 <script>
-// ─── GRAFIK LOKAL ───
 new Chart(document.getElementById('chartLokal').getContext('2d'), {
     type: 'line',
     data: {
@@ -209,11 +198,7 @@ new Chart(document.getElementById('chartLokal').getContext('2d'), {
         responsive: true,
         plugins: {
             legend: { labels: { color: 'rgba(255,255,255,0.6)' } },
-            tooltip: {
-                callbacks: {
-                    label: ctx => ' ' + ctx.parsed.y + ' tiket'
-                }
-            }
+            tooltip: { callbacks: { label: ctx => ' ' + ctx.parsed.y + ' tiket' } }
         },
         scales: {
             x: { ticks: { color: 'rgba(255,255,255,0.5)' }, grid: { color: 'rgba(255,255,255,0.05)' } },
@@ -222,7 +207,6 @@ new Chart(document.getElementById('chartLokal').getContext('2d'), {
     }
 });
 
-// ─── GRAFIK BPS ───
 new Chart(document.getElementById('chartBPS').getContext('2d'), {
     type: 'bar',
     data: {
@@ -233,9 +217,9 @@ new Chart(document.getElementById('chartBPS').getContext('2d'), {
             backgroundColor: [
                 'rgba(52,152,219,0.7)',
                 'rgba(52,152,219,0.7)',
-                'rgba(231,76,60,0.7)',   // merah = tahun covid
-                'rgba(231,76,60,0.7)',   // merah = tahun covid
-                'rgba(46,204,113,0.7)',  // hijau = pemulihan
+                'rgba(231,76,60,0.7)',
+                'rgba(231,76,60,0.7)',
+                'rgba(46,204,113,0.7)',
                 'rgba(46,204,113,0.7)',
                 'rgba(52,152,219,0.7)'
             ],
@@ -248,19 +232,12 @@ new Chart(document.getElementById('chartBPS').getContext('2d'), {
         responsive: true,
         plugins: {
             legend: { labels: { color: 'rgba(255,255,255,0.6)' } },
-            tooltip: {
-                callbacks: {
-                    label: ctx => ' ' + ctx.parsed.y.toLocaleString('id-ID') + ' wisatawan'
-                }
-            }
+            tooltip: { callbacks: { label: ctx => ' ' + ctx.parsed.y.toLocaleString('id-ID') + ' wisatawan' } }
         },
         scales: {
             x: { ticks: { color: 'rgba(255,255,255,0.5)' }, grid: { color: 'rgba(255,255,255,0.05)' } },
             y: {
-                ticks: {
-                    color: 'rgba(255,255,255,0.5)',
-                    callback: val => val >= 1000 ? (val/1000).toFixed(0) + ' rb' : val
-                },
+                ticks: { color: 'rgba(255,255,255,0.5)', callback: val => val >= 1000 ? (val/1000).toFixed(0) + ' rb' : val },
                 grid: { color: 'rgba(255,255,255,0.05)' },
                 beginAtZero: true
             }

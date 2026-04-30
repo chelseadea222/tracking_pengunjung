@@ -1,9 +1,4 @@
 <?php
-if (session_status() === PHP_SESSION_NONE) {
-    session_save_path('/tmp');
-    session_start(); // ✅ JANGAN di-comment
-}
-
 require_once 'koneksi.php';
 
 $error = '';
@@ -20,14 +15,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $users = $stmt->fetch();
 
         if ($users && password_verify($password, $users['password'])) {
-            $_SESSION['user_id'] = $users['id'];
-            $_SESSION['nama']    = $users['nama'];
-            $_SESSION['email']   = $users['email'];
-            $_SESSION['role']    = strtolower($users['role']);
+            setcookie('user_id', $users['id'], time() + 3600, '/', '', true, true);
+            setcookie('nama', $users['nama'], time() + 3600, '/', '', true, false);
+            setcookie('email', $users['email'], time() + 3600, '/', '', true, false);
+            setcookie('role', strtolower($users['role']), time() + 3600, '/', '', true, false);
 
-            session_write_close();
-
-            // ✅ Pakai absolute URL
             $base = 'https://' . $_SERVER['HTTP_HOST'];
             if (strtolower($users['role']) === 'admin') {
                 header("Location: $base/tiket-harian.php");
