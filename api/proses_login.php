@@ -23,7 +23,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $_SESSION['user_id'] = $users['id'];
             $_SESSION['nama']    = $users['nama'];
             $_SESSION['email']   = $users['email'];
-            $_SESSION['role']    = $users['role'];
+            $_SESSION['role']    = strtolower($users['role']);
 
             // ✅ Redirect berdasarkan role
             if (strtolower($users['role']) === 'admin') {
