@@ -120,7 +120,7 @@ require_once __DIR__ . '/proses_tiket_harian.php';
         </div>
 
         <!-- BACKUP -->
-        <a href="backup_tiket.php" class="btn btn-warning mb-4">
+        <a href="/api/backup_tiket.php" class="btn btn-warning mb-4">
             <i class="bi bi-download me-2"></i> Backup Tiket (CSV)
         </a>
 
