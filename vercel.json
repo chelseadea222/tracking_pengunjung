@@ -6,7 +6,6 @@
   },
   "routes": [
     { "src": "/css/(.*)", "dest": "/css/$1" },
-    { "src": "/api/(.*)", "dest": "/api/$1" },
     { "src": "^/login\\.php$", "dest": "/api/login.php" },
     { "src": "^/login$", "dest": "/api/login.php" },
     { "src": "^/register\\.php$", "dest": "/api/register.php" },
@@ -22,6 +21,8 @@
     { "src": "^/logout\\.php$", "dest": "/api/logout.php" },
     { "src": "^/logout$", "dest": "/api/logout.php" },
     { "src": "^/landing_page\\.php$", "dest": "/api/landing_page.php" },
-    { "src": "/(.*)", "dest": "/index.html", "status": 200 }
+    { "src": "^/landing_page$", "dest": "/api/landing_page.php" },
+    { "src": "^/backup_tiket\\.php$", "dest": "/api/backup_tiket.php" },
+    { "src": "^/$", "dest": "/index.html" }
   ]
 }
