@@ -1,5 +1,7 @@
 <?php
 if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+}
 require_once 'koneksi.php';
 
 $error = '';
@@ -34,5 +36,4 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $error = 'Email atau password salah!';
         }
     }
-}
 }

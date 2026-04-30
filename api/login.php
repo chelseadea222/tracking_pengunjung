@@ -8,6 +8,9 @@ if (session_status() === PHP_SESSION_NONE) {
 
 require_once __DIR__ . '/proses_login.php';
 
+
+$error = $error ?? '';
+
 if (isset($_SESSION['role'])) {
     if (strtolower($_SESSION['role']) === 'admin') {
         header('Location: tiket-harian.php');
