@@ -1,5 +1,10 @@
 <?php
-require_once 'koneksi.php';
+if (session_status() === PHP_SESSION_NONE) {
+    session_save_path('/tmp');
+    session_start();
+}
+
+require_once __DIR__ . '/koneksi.php';
 
 $error = '';
 
@@ -12,16 +17,16 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     } else {
         $stmt = $pdo->prepare("SELECT * FROM users WHERE email = :email");
         $stmt->execute([':email' => $email]);
-        $users = $stmt->fetch();
+        $user = $stmt->fetch();
 
-        if ($users && password_verify($password, $users['password'])) {
-            setcookie('user_id', $users['id'], time() + 3600, '/', '', true, true);
-            setcookie('nama', $users['nama'], time() + 3600, '/', '', true, false);
-            setcookie('email', $users['email'], time() + 3600, '/', '', true, false);
-            setcookie('role', strtolower($users['role']), time() + 3600, '/', '', true, false);
+        if ($user && password_verify($password, $user['password'])) {
+            $_SESSION['user_id'] = $user['id'];
+            $_SESSION['nama']    = $user['nama'];
+            $_SESSION['email']   = $user['email'];
+            $_SESSION['role']    = strtolower($user['role']);
 
             $base = 'https://' . $_SERVER['HTTP_HOST'];
-            if (strtolower($users['role']) === 'admin') {
+            if ($_SESSION['role'] === 'admin') {
                 header("Location: $base/tiket-harian.php");
             } else {
                 header("Location: $base/tiket.php");

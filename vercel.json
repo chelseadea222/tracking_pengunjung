@@ -4,25 +4,24 @@
       "runtime": "vercel-php@0.7.2"
     }
   },
-  "routes": [
-    { "src": "/css/(.*)", "dest": "/css/$1" },
-    { "src": "^/login\\.php$", "dest": "/api/login.php" },
-    { "src": "^/login$", "dest": "/api/login.php" },
-    { "src": "^/register\\.php$", "dest": "/api/register.php" },
-    { "src": "^/register$", "dest": "/api/register.php" },
-    { "src": "^/dashboard\\.php$", "dest": "/api/dashboard.php" },
-    { "src": "^/dashboard$", "dest": "/api/dashboard.php" },
-    { "src": "^/tiket\\.php$", "dest": "/api/tiket.php" },
-    { "src": "^/tiket$", "dest": "/api/tiket.php" },
-    { "src": "^/tiket-harian\\.php$", "dest": "/api/tiket_harian.php" },
-    { "src": "^/tiket-harian$", "dest": "/api/tiket_harian.php" },
-    { "src": "^/tiket_harian\\.php$", "dest": "/api/tiket_harian.php" },
-    { "src": "^/tiket_harian$", "dest": "/api/tiket_harian.php" },
-    { "src": "^/logout\\.php$", "dest": "/api/logout.php" },
-    { "src": "^/logout$", "dest": "/api/logout.php" },
-    { "src": "^/landing_page\\.php$", "dest": "/api/landing_page.php" },
-    { "src": "^/landing_page$", "dest": "/api/landing_page.php" },
-    { "src": "^/backup_tiket\\.php$", "dest": "/api/backup_tiket.php" },
-    { "src": "^/$", "dest": "/index.html" }
+  "rewrites": [
+    { "source": "/css/:path*", "destination": "/css/:path*" },
+    { "source": "/login.php", "destination": "/api/login.php" },
+    { "source": "/login", "destination": "/api/login.php" },
+    { "source": "/register.php", "destination": "/api/register.php" },
+    { "source": "/register", "destination": "/api/register.php" },
+    { "source": "/dashboard.php", "destination": "/api/dashboard.php" },
+    { "source": "/dashboard", "destination": "/api/dashboard.php" },
+    { "source": "/tiket.php", "destination": "/api/tiket.php" },
+    { "source": "/tiket", "destination": "/api/tiket.php" },
+    { "source": "/tiket-harian.php", "destination": "/api/tiket_harian.php" },
+    { "source": "/tiket-harian", "destination": "/api/tiket_harian.php" },
+    { "source": "/tiket_harian.php", "destination": "/api/tiket_harian.php" },
+    { "source": "/tiket_harian", "destination": "/api/tiket_harian.php" },
+    { "source": "/logout.php", "destination": "/api/logout.php" },
+    { "source": "/logout", "destination": "/api/logout.php" },
+    { "source": "/landing_page.php", "destination": "/api/landing_page.php" },
+    { "source": "/backup_tiket.php", "destination": "/api/backup_tiket.php" },
+    { "source": "/", "destination": "/index.html" }
   ]
 }
