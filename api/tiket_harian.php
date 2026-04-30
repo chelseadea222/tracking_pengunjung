@@ -4,7 +4,7 @@ if (session_status() === PHP_SESSION_NONE) {
     session_save_path('/tmp');
     session_start();
 }
-var_dump($_SESSION);
+var_dump($_COOKIE);
 die();
 
 // if (!isset($_SESSION['role']) || $_SESSION['role'] !== 'admin') {
