@@ -17,6 +17,8 @@
     { "src": "^/tiket$", "dest": "/api/tiket.php" },
     { "src": "^/tiket-harian\\.php$", "dest": "/api/tiket_harian.php" },
     { "src": "^/tiket-harian$", "dest": "/api/tiket_harian.php" },
+    { "src": "^/tiket_harian\\.php$", "dest": "/api/tiket_harian.php" },
+    { "src": "^/tiket_harian$", "dest": "/api/tiket_harian.php" },
     { "src": "^/logout\\.php$", "dest": "/api/logout.php" },
     { "src": "^/logout$", "dest": "/api/logout.php" },
     { "src": "^/landing_page\\.php$", "dest": "/api/landing_page.php" },
