@@ -13,7 +13,7 @@ $error = $error ?? '';
 
 if (isset($_SESSION['role'])) {
     if (strtolower($_SESSION['role']) === 'admin') {
-        header('Location: tiket-harian.php');
+        header('Location: tiket_harian.php');
         exit;
     } else {
         header('Location: tiket.php');
