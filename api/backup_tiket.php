@@ -68,6 +68,9 @@ require_once __DIR__ . '/proses_backup.php';
         <a href="/tiket-harian.php" class="btn-glass btn-tiket">
             <i class="bi bi-calendar-day"></i> Data Tiket Harian
         </a>
+         <a href="/dashboard.php" class="btn-glass btn-tiket">
+            <i class="bi bi-person"></i> Dashboard
+        </a>
     </div>
 
 </body>

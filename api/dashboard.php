@@ -1,7 +1,14 @@
 <?php
-session_start();
-require_once 'proses_dashboard.php'; // Penting agar data angka muncul
-require_once 'api_dashboard.php';    // Penting agar data grafik muncul
+if (!isset($_COOKIE['u_role']) || $_COOKIE['u_role'] !== 'admin') {
+    header("Location: /login.php");
+    exit();
+}
+
+require_once __DIR__ . '/proses_dashboard.php';
+require_once __DIR__ . '/api_dashboard.php';
+
+// require_once 'proses_dashboard.php'; // Penting agar data angka muncul
+// require_once 'api_dashboard.php';    // Penting agar data grafik muncul
 ?>
 <!DOCTYPE html>
 <html lang="id">
